@@ -13,6 +13,7 @@ Kopieren Sie sich die beiden Dateien backlog.sh und backlog.log und legen Sie di
 ```sh
 $ cd /pfad/zum/shopware-verzeichnis/
 ```
+Achten Sie bitte hierbei darauf, dass Sie den Pfad zu Ihrem Shopware-Vezeichnis in Zeile 2 anpassen.
 
 Einrichtung des Cronjobs auf dem Apache Server:
 
