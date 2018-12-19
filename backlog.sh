@@ -1,11 +1,11 @@
 #!/bin/bash
 # bash script for backlog processing
-# cd /path/to/your/shopware-dir/
-amount=$(php bin/console plentyconnector:backlog:info | cat /dev/stdin | head -4l | tail -1 | cut -d' ' -f7)
+# cd /your/Shopware-Verzeichnis/
+amount=$(php bin/console plentyconnector:backlog:info | cat | head -4l | tail -1 | cut -d' ' -f7)
 #echo $amount;
 while [ $amount -gt 0 ] ; do
 	echo "amount queued: $amount"
 	php bin/console plentyconnector:backlog:process
-	amount=$(php bin/console plentyconnector:backlog:info | cat /dev/stdin | head -4l | tail -1 | cut -d' ' -f7)
+	amount=$(php -d memoryLimit=8192M bin/console plentyconnector:backlog:info | cat | head -4l | tail -1 | cut -d' ' -f7)
 done
 echo "processing finished"
